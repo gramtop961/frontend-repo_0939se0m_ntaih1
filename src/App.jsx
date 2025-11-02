@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ProductGrid from './components/ProductGrid';
+import Blog from './components/Blog';
 import Footer from './components/Footer';
 
 export default function App() {
@@ -13,7 +14,7 @@ export default function App() {
     const description =
       'Aukščiausios kokybės japoniška matcha: ceremonial, daily ir specialūs mišiniai. Tvari kilmė, ryški žalia spalva ir švarus skonis.';
     const keywords =
-      'matcha, japoniška arbata, uji, kagoshima, ceremonial grade, latte, žalia arbata, premium matcha';
+      'matcha, japoniška arbata, uji, kagoshima, ceremonial grade, latte, žalia arbata, premium matcha, blogas, receptai, paruošimas';
 
     if (metaDesc) metaDesc.setAttribute('content', description);
     if (metaKeywords) metaKeywords.setAttribute('content', keywords);
@@ -25,6 +26,7 @@ export default function App() {
       <main>
         <Hero />
         <ProductGrid />
+        <Blog />
       </main>
       <Footer />
     </div>
