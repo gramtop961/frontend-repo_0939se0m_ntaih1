@@ -1,10 +1,32 @@
 import { motion } from "framer-motion";
+import Spline from "@splinetool/react-spline";
 
 export default function Hero() {
   return (
     <section className="relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-green-50 to-white" />
-      <div className="max-w-6xl mx-auto px-4 py-20 relative">
+      {/* Full-bleed visual background: image + Spline 3D */}
+      <div className="absolute inset-0">
+        {/* Fallback/background image */}
+        <div
+          className="absolute inset-0 bg-center bg-cover"
+          style={{
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1695740633675-d060b607f5c4?ixid=M3w3OTkxMTl8MHwxfHNlYXJjaHwxfHxjZXJhbWljJTIwcG90dGVyeSUyMGhhbmRtYWRlfGVufDB8MHx8fDE3NjIwNzE5NTh8MA&ixlib=rb-4.1.0&w=1600&auto=format&fit=crop&q=80')",
+          }}
+          aria-hidden
+        />
+        {/* Subtle tint to ensure text readability, doesn't block interaction */}
+        <div className="absolute inset-0 bg-white/70 md:bg-white/60 pointer-events-none" />
+        {/* 3D scene layer */}
+        <div className="absolute inset-0 opacity-70">
+          <Spline
+            scene="https://prod.spline.design/0YJ7k4h9mAQrWcno/scene.splinecode"
+            style={{ width: "100%", height: "100%" }}
+          />
+        </div>
+      </div>
+
+      <div className="relative max-w-6xl mx-auto px-4 py-24">
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div>
             <motion.h1
@@ -19,7 +41,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="mt-4 text-lg text-gray-600"
+              className="mt-4 text-lg text-gray-700"
             >
               Aukščiausios kokybės, šešėlyje augintos arbatos lapeliai, malti į ryškiai
               žalią miltelius. Skonis, energija ir ramybė vienoje taurėje.
@@ -39,15 +61,15 @@ export default function Hero() {
               </a>
             </div>
             <dl className="mt-8 grid grid-cols-3 gap-4 text-center">
-              <div className="p-3 rounded-lg bg-white shadow-sm">
+              <div className="p-3 rounded-lg bg-white/90 backdrop-blur shadow-sm">
                 <dt className="text-xs text-gray-500">Kilmė</dt>
                 <dd className="text-sm font-semibold text-gray-900">Uji, Japonija</dd>
               </div>
-              <div className="p-3 rounded-lg bg-white shadow-sm">
+              <div className="p-3 rounded-lg bg-white/90 backdrop-blur shadow-sm">
                 <dt className="text-xs text-gray-500">Kofeinas</dt>
                 <dd className="text-sm font-semibold text-gray-900">Švelni, stabili energija</dd>
               </div>
-              <div className="p-3 rounded-lg bg-white shadow-sm">
+              <div className="p-3 rounded-lg bg-white/90 backdrop-blur shadow-sm">
                 <dt className="text-xs text-gray-500">Nauda</dt>
                 <dd className="text-sm font-semibold text-gray-900">L-teaninas & antioksidantai</dd>
               </div>
@@ -61,12 +83,13 @@ export default function Hero() {
               className="relative aspect-square rounded-3xl overflow-hidden shadow-xl"
             >
               <img
-                src="https://images.unsplash.com/photo-1615485737651-6b8ef2b2b14c?q=80&w=1600&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1615485737651-6b8ef2b2b14c?q=80&w=1400&auto=format&fit=crop"
                 alt="Japoniška matcha arbata puodelyje"
                 className="w-full h-full object-cover"
                 loading="eager"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+              {/* gradient overlay should not block interactions */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" />
             </motion.div>
             <motion.div
               initial={{ y: 20, opacity: 0 }}
