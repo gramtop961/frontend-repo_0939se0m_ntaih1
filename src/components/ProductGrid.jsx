@@ -1,73 +1,72 @@
 const products = [
   {
-    name: 'Studio Pro',
-    tagline: 'Immersive over‑ear with adaptive ANC',
-    price: '$349',
+    id: 'ceremonial',
+    name: 'Ceremonial Grade Uji',
+    tagline: 'Švelni, saldoka umami, šilkinė tekstūra',
+    price: 32,
+    weight: '30g',
     image:
-      'https://images.unsplash.com/photo-1518441902111-a2e3d2da43b3?q=80&w=2069&auto=format&fit=crop',
-    colors: ['#111111', '#e5e7eb', '#dc2626', '#4f46e5'],
+      'https://images.unsplash.com/photo-1523905330026-b8bd1f5f320e?q=80&w=1887&auto=format&fit=crop',
+    notes: ['Uji, Kyoto', 'Pirmas skynimas', 'Akmeninis malūnas'],
   },
   {
-    name: 'Solo 4',
-    tagline: 'Iconic on‑ear with vibrant sound',
-    price: '$229',
+    id: 'daily',
+    name: 'Daily Matcha Kagoshima',
+    tagline: 'Kasdieniams ritualams ir latte',
+    price: 19,
+    weight: '50g',
     image:
-      'https://images.unsplash.com/photo-1484704849700-f032a568e944?q=80&w=2068&auto=format&fit=crop',
-    colors: ['#111111', '#0ea5e9', '#84cc16', '#f59e0b'],
+      'https://images.unsplash.com/photo-1597484662319-8dbb45e32569?q=80&w=1964&auto=format&fit=crop',
+    notes: ['Kagoshima', 'Subalansuotas', 'Puikiai tinka su pienu'],
   },
   {
-    name: 'Fit Pro',
-    tagline: 'Secure fit earbuds for movement',
-    price: '$199',
+    id: 'blend',
+    name: 'Heritage Blend',
+    tagline: 'Gilus skonis, ilgai išliekantis saldumas',
+    price: 26,
+    weight: '40g',
     image:
-      'https://images.unsplash.com/photo-1546435770-a3e426bf472b?q=80&w=2070&auto=format&fit=crop',
-    colors: ['#111111', '#22c55e', '#a855f7', '#fb7185'],
+      'https://images.unsplash.com/photo-1602143407151-7111542de6e8?q=80&w=1974&auto=format&fit=crop',
+    notes: ['Shizuoka', 'Umami', 'Ryški žalia'],
   },
 ];
 
 export default function ProductGrid() {
   return (
-    <section id="products" className="relative py-20 bg-black">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="flex items-end justify-between mb-8">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">Explore the lineup</h2>
-          <a href="#" className="text-sm text-white/70 hover:text-white">View all</a>
+    <section id="products" className="bg-black px-4 py-16 text-white sm:py-20">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-10 flex items-end justify-between">
+          <div>
+            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">Mūsų Matcha</h2>
+            <p className="mt-2 text-white/70">Aukštos kokybės lapeliai, atsakingas tiekimas ir skaidri kilmė.</p>
+          </div>
+          <a href="#about" className="hidden rounded-full border border-white/20 px-4 py-2 text-sm text-white/80 transition hover:border-white/40 hover:text-white sm:inline-flex">Apie kokybę</a>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {products.map((p) => (
-            <article key={p.name} className="group rounded-3xl overflow-hidden bg-white/5 border border-white/10">
+            <article key={p.id} className="group relative overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/40">
               <div className="relative aspect-[4/3] overflow-hidden">
-                <img
-                  src={p.image}
-                  alt={p.name}
-                  className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                <img src={p.image} alt={p.name} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
               </div>
               <div className="p-5">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-semibold">{p.name}</h3>
-                  <span className="text-white/80 text-sm">{p.price}</span>
+                <div className="mb-1 flex items-center justify-between">
+                  <h3 className="text-lg font-semibold">{p.name}</h3>
+                  <span className="rounded-full bg-emerald-500/15 px-2 py-1 text-xs text-emerald-300">{p.weight}</span>
                 </div>
-                <p className="mt-1 text-sm text-white/70">{p.tagline}</p>
-                <div className="mt-4 flex items-center gap-2">
-                  {p.colors.map((c, i) => (
-                    <span
-                      key={i}
-                      className="h-5 w-5 rounded-full border border-white/20"
-                      style={{ backgroundColor: c }}
-                      aria-hidden
-                    />
+                <p className="mb-3 text-sm text-white/70">{p.tagline}</p>
+                <ul className="mb-4 flex flex-wrap gap-2">
+                  {p.notes.map((n) => (
+                    <li key={n} className="rounded-full border border-white/10 px-2.5 py-1 text-xs text-white/70">{n}</li>
                   ))}
-                </div>
-                <div className="mt-5 flex items-center gap-3">
-                  <button className="px-4 py-2 rounded-full bg-white text-black font-semibold hover:bg-white/90 transition">
-                    Buy
-                  </button>
-                  <button className="px-4 py-2 rounded-full border border-white/20 text-white/90 hover:border-white/40 transition">
-                    Learn more
-                  </button>
+                </ul>
+                <div className="flex items-center justify-between">
+                  <span className="text-xl font-semibold">€{p.price}</span>
+                  <div className="flex gap-2">
+                    <button className="rounded-full bg-emerald-500 px-4 py-2 text-sm font-medium text-black transition hover:bg-emerald-400">Į krepšelį</button>
+                    <button className="rounded-full border border-white/20 px-4 py-2 text-sm text-white/90 transition hover:border-white/40 hover:text-white">Daugiau</button>
+                  </div>
                 </div>
               </div>
             </article>

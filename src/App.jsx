@@ -1,29 +1,26 @@
 import { useEffect } from 'react';
-import Navbar from './components/Navbar.jsx';
-import Hero from './components/Hero.jsx';
-import ProductGrid from './components/ProductGrid.jsx';
-import Footer from './components/Footer.jsx';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import ProductGrid from './components/ProductGrid';
+import Footer from './components/Footer';
 
 export default function App() {
   useEffect(() => {
-    document.title = 'Beats-style Audio Shop — Sleek, Modern, Interactive';
+    document.title = 'Matcha Mono — Autentiška japoniška matcha arbata';
+    const metaDesc = document.querySelector('meta[name="description"]');
+    const metaKeywords = document.querySelector('meta[name="keywords"]');
 
-    const ensureMeta = (name, content) => {
-      let tag = document.querySelector(`meta[name="${name}"]`);
-      if (!tag) {
-        tag = document.createElement('meta');
-        tag.setAttribute('name', name);
-        document.head.appendChild(tag);
-      }
-      tag.setAttribute('content', content);
-    };
+    const description =
+      'Aukščiausios kokybės japoniška matcha: ceremonial, daily ir specialūs mišiniai. Tvari kilmė, ryški žalia spalva ir švarus skonis.';
+    const keywords =
+      'matcha, japoniška arbata, uji, kagoshima, ceremonial grade, latte, žalia arbata, premium matcha';
 
-    ensureMeta('description', 'Premium audio store with interactive 3D hero. Explore sleek wireless headphones and earbuds in a modern, minimal interface.');
-    ensureMeta('keywords', 'headphones, earbuds, wireless audio, ANC, spatial audio, premium sound, beats style');
+    if (metaDesc) metaDesc.setAttribute('content', description);
+    if (metaKeywords) metaKeywords.setAttribute('content', keywords);
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-white font-inter">
+    <div className="min-h-screen bg-black font-inter text-white">
       <Navbar />
       <main>
         <Hero />

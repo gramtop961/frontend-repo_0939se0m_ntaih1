@@ -1,23 +1,21 @@
+import { ShoppingBag } from 'lucide-react';
+
 export default function Navbar() {
   return (
-    <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-black/60 bg-black/70 border-b border-white/10">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 h-16 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="size-8 rounded-full bg-white flex items-center justify-center">
-            <span className="text-black font-bold">b</span>
-          </div>
-          <span className="text-lg tracking-tight font-semibold">beats.store</span>
-        </div>
-        <nav className="hidden md:flex items-center gap-8 text-sm text-white/80">
-          <a href="#products" className="hover:text-white transition">Products</a>
-          <a href="#features" className="hover:text-white transition">Features</a>
-          <a href="#support" className="hover:text-white transition">Support</a>
+    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-black/60 backdrop-blur-md">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:py-4">
+        <a href="#" className="flex items-center gap-2 text-white">
+          <span className="inline-block h-8 w-8 rounded-full bg-emerald-500" />
+          <span className="text-lg font-semibold tracking-tight">Matcha Mono</span>
+        </a>
+        <nav className="hidden items-center gap-8 text-sm text-white/80 sm:flex">
+          <a href="#products" className="hover:text-white transition">Produktai</a>
+          <a href="#about" className="hover:text-white transition">Apie</a>
+          <a href="#support" className="hover:text-white transition">Pagalba</a>
         </nav>
-        <div className="flex items-center gap-3">
-          <button className="px-4 py-2 rounded-full bg-white text-black font-medium hover:bg-white/90 transition">
-            Buy now
-          </button>
-        </div>
+        <button className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-4 py-2 text-sm font-medium text-black hover:bg-emerald-400 transition">
+          <ShoppingBag className="h-4 w-4" /> Pirkti dabar
+        </button>
       </div>
     </header>
   );

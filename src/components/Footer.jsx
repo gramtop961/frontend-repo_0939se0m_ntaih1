@@ -1,55 +1,36 @@
 export default function Footer() {
   return (
-    <footer id="support" className="border-t border-white/10 bg-black">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8 text-sm text-white/70">
+    <footer id="support" className="border-t border-white/10 bg-black py-12 text-white">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <div className="flex items-center gap-3">
-            <div className="size-8 rounded-full bg-white flex items-center justify-center">
-              <span className="text-black font-bold">b</span>
-            </div>
-            <span className="text-base text-white font-semibold">beats.store</span>
-          </div>
-          <p className="mt-3 max-w-xs">Sleek, modern audio gear designed for pure immersion and everyday comfort.</p>
-        </div>
-        <div>
-          <p className="text-white font-medium">Shop</p>
-          <ul className="mt-3 space-y-2">
-            <li><a href="#products" className="hover:text-white">Headphones</a></li>
-            <li><a href="#products" className="hover:text-white">Earbuds</a></li>
-            <li><a href="#" className="hover:text-white">Accessories</a></li>
+          <h4 className="mb-3 text-sm font-semibold tracking-wide text-white/80">Parduotuvė</h4>
+          <ul className="space-y-2 text-sm text-white/70">
+            <li><a href="#products" className="hover:text-white">Matcha</a></li>
+            <li><a href="#" className="hover:text-white">Priedai</a></li>
+            <li><a href="#" className="hover:text-white">Dovanų rinkiniai</a></li>
           </ul>
         </div>
         <div>
-          <p className="text-white font-medium">Support</p>
-          <ul className="mt-3 space-y-2">
-            <li><a href="#support" className="hover:text-white">Help Center</a></li>
-            <li><a href="#support" className="hover:text-white">Warranty</a></li>
-            <li><a href="#support" className="hover:text-white">Order Status</a></li>
+          <h4 className="mb-3 text-sm font-semibold tracking-wide text-white/80">Pagalba</h4>
+          <ul className="space-y-2 text-sm text-white/70">
+            <li><a href="#" className="hover:text-white">Pristatymas ir grąžinimai</a></li>
+            <li><a href="#" className="hover:text-white">DUK</a></li>
+            <li><a href="#" className="hover:text-white">Kontaktai</a></li>
           </ul>
         </div>
-        <div>
-          <p className="text-white font-medium">Newsletter</p>
-          <p className="mt-3">Get product news and offers.</p>
-          <form className="mt-3 flex gap-2">
-            <input
-              type="email"
-              placeholder="Email address"
-              className="flex-1 rounded-full bg-white/10 border border-white/10 px-4 py-2 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/30"
-            />
-            <button type="submit" className="px-4 py-2 rounded-full bg-white text-black font-medium hover:bg-white/90 transition">
-              Sign up
-            </button>
+        <div className="sm:col-span-2">
+          <h4 className="mb-3 text-sm font-semibold tracking-wide text-white/80">Naujienlaiškis</h4>
+          <p className="mb-4 text-sm text-white/70">Gaukite receptų, ritualų ir ribotų leidimų naujienas.</p>
+          <form className="flex max-w-md gap-2">
+            <input type="email" required placeholder="el. paštas" className="w-full rounded-full border border-white/10 bg-zinc-900/60 px-4 py-2 text-sm text-white placeholder:text-white/40 focus:border-white/30 focus:outline-none" />
+            <button className="rounded-full bg-emerald-500 px-4 py-2 text-sm font-medium text-black hover:bg-emerald-400">Prenumeruoti</button>
           </form>
         </div>
       </div>
-      <div className="border-t border-white/10">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 py-6 text-xs text-white/50 flex flex-wrap items-center gap-4 justify-between">
-          <p>© {new Date().getFullYear()} beats.store — All rights reserved.</p>
-          <div className="flex items-center gap-4">
-            <a href="#" className="hover:text-white/80">Privacy</a>
-            <a href="#" className="hover:text-white/80">Terms</a>
-            <a href="#" className="hover:text-white/80">Cookies</a>
-          </div>
+      <div className="mx-auto mt-10 max-w-7xl px-4">
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 py-6 text-xs text-white/50 sm:flex-row">
+          <p>© {new Date().getFullYear()} Matcha Mono. Visos teisės saugomos.</p>
+          <p>Pagaminta su meile Japonijoje • Tvarūs ūkiai</p>
         </div>
       </div>
     </footer>
