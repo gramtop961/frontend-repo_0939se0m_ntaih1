@@ -1,34 +1,24 @@
-import { ShoppingCart, Leaf } from "lucide-react";
-
-export default function Navbar({ onCartOpen, cartCount }) {
+export default function Navbar() {
   return (
-    <header className="sticky top-0 z-50 backdrop-blur bg-white/70 border-b border-green-100">
-      <nav className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2">
-          <span className="inline-flex h-9 w-9 rounded-full bg-green-600 text-white items-center justify-center">
-            <Leaf className="h-5 w-5" />
-          </span>
-          <span className="font-semibold text-lg">Matcha Mistras</span>
-        </a>
-        <div className="flex items-center gap-6">
-          <a href="#apie" className="text-sm text-gray-600 hover:text-gray-900">Apie</a>
-          <a href="#produktai" className="text-sm text-gray-600 hover:text-gray-900">Produktai</a>
-          <a href="#kontaktai" className="text-sm text-gray-600 hover:text-gray-900">Kontaktai</a>
-          <button
-            onClick={onCartOpen}
-            className="relative inline-flex items-center gap-2 rounded-full bg-green-600 text-white px-4 py-2 hover:bg-green-700 transition"
-            aria-label="Krepšelis"
-          >
-            <ShoppingCart className="h-5 w-5" />
-            <span className="text-sm">Krepšelis</span>
-            {cartCount > 0 && (
-              <span className="absolute -top-2 -right-2 h-5 min-w-[20px] px-1 rounded-full bg-emerald-500 text-xs flex items-center justify-center">
-                {cartCount}
-              </span>
-            )}
+    <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-black/60 bg-black/70 border-b border-white/10">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 h-16 flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <div className="size-8 rounded-full bg-white flex items-center justify-center">
+            <span className="text-black font-bold">b</span>
+          </div>
+          <span className="text-lg tracking-tight font-semibold">beats.store</span>
+        </div>
+        <nav className="hidden md:flex items-center gap-8 text-sm text-white/80">
+          <a href="#products" className="hover:text-white transition">Products</a>
+          <a href="#features" className="hover:text-white transition">Features</a>
+          <a href="#support" className="hover:text-white transition">Support</a>
+        </nav>
+        <div className="flex items-center gap-3">
+          <button className="px-4 py-2 rounded-full bg-white text-black font-medium hover:bg-white/90 transition">
+            Buy now
           </button>
         </div>
-      </nav>
+      </div>
     </header>
   );
 }
